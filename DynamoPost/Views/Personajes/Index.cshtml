@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DynamoPost.Models.Personaje>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPersonaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pelicula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pelicula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdPersonaje }) |
+                @Html.ActionLink("Details", "Details", new { id= item.IdPersonaje }) |
+                @Html.ActionLink("Delete", "Delete", new { id= item.IdPersonaje })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
